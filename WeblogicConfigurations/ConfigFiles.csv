@@ -1,0 +1,5 @@
+key,DEV01,DEV02,DEV03,DEV04
+ConnectionFactoryJndiName,DEV01Property,DEV02Property,DEV03Property,DEV04Property
+host,dev01host,dev02host,dev03host,dev04host
+url,google.com/pma/dev01,google.com/pma/dev02,google.com/pma/dev03,google.com/pma/dev04
+queuename,dev01queuename,dev02queuename,dev03queuename,dev04queuename

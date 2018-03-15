@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project
+	NS1:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:NS1="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ConfigurationFiles</groupId>
+	<artifactId>ConfigurationFiles</artifactId>
+	<packaging>jar</packaging>
+	<version>0.1</version>
+	<name>Conf</name>
+	<url>http://maven.apache.org</url>	
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.1</version>
+				
+				<executions>
+					<execution>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<executable>${basedir}/scripts/envPropMaker.bat</executable>
+					<arguments>
+						<argument>${basedir}/ConfigFiles.csv</argument>
+						<argument>${basedir}</argument>
+						<argument>target</argument>
+						<argument>Configuration</argument>
+						<argument>PMATransaction.properties</argument>
+						<argument>RensburgTransaction.properties</argument>
+						<argument>4</argument>
+					</arguments>
+				</configuration>
+				<dependencies>
+				<dependency>
+                    <groupId>ant-contrib</groupId>
+                    <artifactId>ant-contrib</artifactId>
+                    <version>1.0b3</version>
+                    <exclusions>
+                        <exclusion>
+                            <artifactId>ant</artifactId>
+                            <groupId>ant</groupId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+
+				</dependencies>
+			</plugin>
+			
+		</plugins>
+	</build>
+</project>
